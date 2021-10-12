@@ -1,0 +1,38 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="loginScreen">
+    <h2>Registar</h2>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+        <div class="nameForm">
+            <label for="name">Nome</label>
+            <input type="text" formControlName="name">
+        </div>
+        <div class="emailForm">
+            <label for="email">Email</label>
+            <input type="email" formControlName="email">
+        </div>
+        <div class="phoneForm">
+            <label for="phone">Telefone</label>
+            <input type="text" formControlName="phone">
+        </div>
+        <div class="moradaForm">
+            <label for="morada">Morada</label>
+            <input type="text" formControlName="morada">
+        </div>
+        <div class="nifForm">
+            <label for="nif">NIF</label>
+            <input type="text" formControlName="nif">
+        </div>
+        <div class="usernameForm">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username">
+        </div>
+        <div class="passwordForm">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password">
+        </div>
+        <div class="submit">
+            <button>Registar</button>
+            <button type="button" onclick="location.href='/login'">Já tem conta? Login</button>
+        </div>
+    </form>
+</div>

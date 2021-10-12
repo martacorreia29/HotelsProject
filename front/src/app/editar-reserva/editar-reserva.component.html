@@ -1,0 +1,26 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="reserva" ng-hide="reserva == null">
+
+    <form id="editForm" class="form" [formGroup]="editForm" (ngSubmit)="editarReserva(editForm.value)">
+
+        <div class="tab">
+            <p>Escolha a Nova Data da Estadia:</p>
+            <div class="checkinForm">
+                <label for="checkin">Data de Check-In:</label>
+                <input id="check-in" type="date" formControlName="checkin" [(ngModel)]="checkin">
+            </div>
+            <div class="checkoutForm">
+                <label for="checkout">Data de Check-Out:</label>
+                <input id="check-out" type="date" formControlName="checkout" [(ngModel)]="checkout">
+            </div>
+            <p style="font-size: 0.7em;" *ngIf="showPrice()">Novo preço:</p>
+            <a *ngIf="showPrice()">{{getPrice()}} €</a>
+        </div>
+
+    </form>
+
+    <div class="botoes">
+        <button type="button" *ngIf="reserva!=null" routerLink="/reserva/{{reserva._id}}">Cancelar</button>
+        <button (click)="editarReserva(editForm.value)">Confirmar</button>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="CriarReserva">
+    <a>Reservar</a>
+
+    <form id="reservationForm" class="form" [formGroup]="reservationForm"
+        (ngSubmit)="criarReserva(reservationForm.value)">
+
+        <!--ROOM INFO-->
+        <div class="tab">
+            <p>Escolha a Data da Estadia e Tipo de Quarto</p>
+            <div class="checkinForm">
+                <label for="checkin">Data de Check-In:</label>
+                <input type="date" formControlName="checkin" [(ngModel)]="checkin">
+            </div>
+            <div class="checkoutForm">
+                <label for="checkout">Data de Check-Out:</label>
+                <input type="date" formControlName="checkout" [(ngModel)]="checkout">
+            </div>
+            <div class="tipoDeQuartoForm" *ngIf="getDefault()!=null">
+                <label for="tipoDeQuarto">Tipo de Quarto:</label>
+                <select form="reservationForm" formControlName="tipoDeQuarto" [(ngModel)]="listTQuartos[getDefault()]">
+                    <option *ngFor="let tipoQuarto of listTQuartos; let i = index" [ngValue]="listTQuartos[i]">
+                        <span *ngIf="tipoQuarto!=null">{{tipoQuarto.name}}</span>
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <!--PERSONAL INFO-->
+        <div class="tab">
+            <p>Dados Pessoais</p>
+            <div class="nameForm">
+                <label for="name">Nome:</label>
+                <input type="text" formControlName="name" [(ngModel)]="currentClient.name">
+            </div>
+            <div class="emailForm">
+                <label for="email">Email:</label>
+                <input type="email" formControlName="email" [(ngModel)]="currentClient.email">
+            </div>
+            <div class="phoneForm">
+                <label for="phone">Telefone:</label>
+                <input type="tel" formControlName="phone" [(ngModel)]="currentClient.phone">
+            </div>
+            <div class="moradaForm">
+                <label for="morada">Morada:</label>
+                <input type="text" formControlName="morada" [(ngModel)]="currentClient.address">
+            </div>
+            <div class="nifForm">
+                <label for="nif">NIF:</label>
+                <input type="text" formControlName="nif" [(ngModel)]="currentClient.nif">
+            </div>
+        </div>
+
+        <!--PAYMENT INFO-->
+        <div class="tab">
+            <p>Dados Cartão de Crédito</p>
+            <div class="numeroCartaoCreditoForm">
+                <label for="numeroCartaoCredito">Número do Cartão de Crédito:</label>
+                <input type="number" formControlName="numeroCartaoCredito">
+            </div>
+            <div class="dataValidadeForm">
+                <label for="dataValidade">Data de Validade do Cartão de Crédito:</label>
+                <input type="date" formControlName="dataValidade">
+            </div>
+            <div class="cvvForm">
+                <label for="cvv">CVV:</label>
+                <input type="number" formControlName="cvv">
+            </div>
+            <br>
+        </div>
+
+        <div class="tab">
+            <p>Confirme os dados da sua reserva:</p>
+            <div class="dados" style="text-align: left; position: relative;" *ngIf="reservationForm.value.tipoDeQuarto != null">
+                <p style="font-size: 0.7em;"><a>Data de Check-In:</a> {{this.reservationForm.value.checkin}}</p>
+                <p style="font-size: 0.7em;"><a>Data de Check-Out:</a> {{this.reservationForm.value.checkout}}</p>
+                <p style="font-size: 0.7em;"><a>Tipo de Quarto:</a> {{this.reservationForm.value.tipoDeQuarto.name}}</p>
+                <p style="font-size: 0.7em;"><a>Nome:</a> {{this.reservationForm.value.name}}</p>
+                <p style="font-size: 0.7em;"><a>Email:</a> {{this.reservationForm.value.email}}</p>
+                <p style="font-size: 0.7em;"><a>Telefone:</a> {{this.reservationForm.value.phone}}</p>
+                <p style="font-size: 0.7em;"><a>Morada:</a> {{this.reservationForm.value.morada}}</p>
+                <p style="font-size: 0.7em;"><a>NIF:</a> {{this.reservationForm.value.nif}}</p>
+                <p style="font-size: 0.7em;"><a>Número do Cartão:</a> {{this.reservationForm.value.numeroCartaoCredito}}
+                </p>
+                <p style="font-size: 0.7em;"><a>Data de Validade do Cartão:</a>
+                    {{this.reservationForm.value.dataValidade}}</p>
+                <p style="font-size: 0.7em;"><a>CVV:</a> {{this.reservationForm.value.cvv}}</p>
+                <p style="font-size: 0.7em;"><a>Preço da Reserva:</a> {{getPreco()}}€</p>
+            </div>
+        </div>
+    </form>
+
+    <!-- Circles which indicates the steps of the form: -->
+    <div class="botoes">
+        <button type="button" id="prevBtn" (click)="nextPrev(-1)">Anterior</button>
+        <button type="button" id="nextBtn" (click)="nextPrev(1)" style="margin-bottom: 2%;">Próximo</button>
+        <br>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+    </div>
+</div>

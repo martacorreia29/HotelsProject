@@ -1,0 +1,95 @@
+/* .top-bar{
+    border: 1px rgb(128, 128, 128) solid;
+    margin-left: auto;
+    display:grid;
+    height:8%;
+    width:100%;
+    background-color: grey;
+    grid-template:  100% / 10% 10% 10% 70%;
+    padding: 14px 16px;
+}
+
+.boxLogo{
+    grid-area: 1/ 1 / span 1/ span 1  ;
+    text-align: center;
+    font-size: x-large;
+}
+
+.boxHotel{
+    grid-area: 1/ 2 / span 1/ span 1  ;
+    text-align: center;
+    font-size: x-large;
+}
+
+.boxReservas{
+    grid-area: 1/ 3 / span 1/ span 1  ;
+    text-align: center;
+    font-size: x-large;
+
+}
+
+.boxLogo,.boxHotel,.boxReservas{
+    border-left: 2px black solid;
+    transition-property: all;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+    cursor:pointer;
+}
+.boxLogo:hover,.boxReservas:hover,.boxHotel:hover{
+    background-color: rgb(82, 79, 79);
+} */
+
+
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  height: 3.1em;
+  width: 100%;
+  display: inline-block;
+}
+
+.navbar a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 0.75em 0.8em;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+.navbar a:hover {
+	background: #ddd;
+	color: rgb(0, 0, 0);
+}
+
+.navbar a:first-child {
+    padding: 0px 0px;
+}
+
+.navbar #login {
+  float: right;
+}
+
+img{
+    width: auto;
+    height: 2.6em;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+	.html {
+		overflow-x: hidden;
+	}
+	.navbar {
+    font-size: 1.4em;
+  }
+}
+
+@media only screen and (max-device-width : 320px) {
+  .navbar #login{
+    float: left;
+  }
+}

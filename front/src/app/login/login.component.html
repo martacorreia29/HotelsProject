@@ -1,0 +1,19 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="loginScreen">
+    <h2>Login</h2>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <div class="usernameForm">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username">
+        </div>
+        <div class="passwordForm">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password">
+        </div>
+        <div class="submit">
+            <button type="submit">Login</button>
+            <button type="button" onclick="location.href='/register'">Registar</button>
+        </div>
+    </form>
+</div>
+

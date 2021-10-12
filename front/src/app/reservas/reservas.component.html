@@ -1,0 +1,47 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" charset="UTF-8"/>
+
+<div class="grid-container">
+  <div class="titulo">
+    <h1 id="titulo"> Reservas de {{currentClient.username}}</h1>
+  </div>
+  <div class="reservasData" *ngIf="hasReservas(); else noReservas">
+    <div class="datas">
+      <div class="checkin">
+        Check-in
+        <br>
+        <input type="date" id="date-in" value=''>
+      </div>
+      <div class="checkout">
+        Check-out
+        <br>
+        <input type="date" id="date-out" value=''>
+      </div>
+      <button class="okData" id="procurar" (click)="updateListCheck()">Procurar</button>
+      <button class="cancelarData" id="cancelar" (click)="cleanListCheck()">Cancelar</button>
+    </div>
+    <div class="price">
+      Preço:
+      <div  class="slidecontainer">
+        <input  type="range" min="1" value="50" class="slider" id="myRange" (input)="upDateListPrice() ">
+        <p>Valor: <span id="valuePrice"></span></p>
+      </div>
+
+    </div>
+    <ul class="reservas">
+      <li class="reserva" *ngFor="let reserva of reservas; let i = index"  routerLink="/reserva/{{reserva._id}}">
+        <img src="http://{{reserva.hotel.photo_path[0]}}">
+
+        <div class="dados">
+          <p #myRange><strong>Tipo de Quarto: </strong><a class="link" href="tipoDeQuarto/{{reserva.tipodequarto._id}}">{{reserva.tipodequarto.name}}</a></p>
+          <p><strong>Hotel: </strong> <a class="link" href="hotel/{{reserva.hotel._id}}">{{reserva.hotel.name}}</a></p>
+          <p><strong>Checkin: </strong>{{this.checkins[i]}}</p>
+          <p><strong>Checkout: </strong>{{this.checkouts[i]}}</p>
+          <p><strong>Preço: </strong>{{this.reserva.preco}} €</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noReservas>
+    <p style="font-size: 1.5em; padding-left: 1em; font-weight: normal">Não tem reservas.🥺</p>
+  </ng-template>
+</div>

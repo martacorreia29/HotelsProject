@@ -1,0 +1,150 @@
+.cartao {
+    padding-top: 3%;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    font-size: 1.3em;
+    font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+    margin-top: 1em;
+    line-height: 0.6em;
+}
+
+a {
+    font-size: 1.9em;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.05em;
+}
+
+input, select {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 2em;
+    border-radius: 0.6em;
+    width: 15%;
+    margin-bottom: 0.5%;
+}
+
+label {
+    padding-bottom: 0.5%;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    display: inline-block;
+    padding: 1em 3em;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.15em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #343434;
+    box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
+    text-align: center;
+    position: relative;
+}
+
+button:active {
+    top: 0.1em;
+}
+
+.botoesNav {
+    display: block;
+    width: 100%;
+    margin: auto;
+    align-content: center;
+}
+
+/* Hide all steps by default: */
+
+.tab {
+    display: block;
+    /* height: 18em; */
+    line-height: 1em;
+}
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Mark the active step: */
+
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+
+.step.finish {
+    background-color: #4CAF50;
+}
+
+.dados {
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    border-top: solid rgb(34, 34, 34) thin;
+    border-bottom: solid rgb(34, 34, 34) thin;
+}
+
+.dados p {
+    padding-left: 2%;
+}
+
+.dados a {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.botoes {
+    text-align: center;
+    margin-top: 0.8em;
+    justify-content: center;
+}
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .cartao {
+        padding-top: 11%;
+    }
+    h2, .cartao {
+        font-size: 2em;
+    }
+    button {
+        font-size: 0.6em;
+    }
+    input, select {
+        display: block;
+        height: 2.3em;
+        border-radius: 0.6em;
+        width: 60%;
+        margin-bottom: 0.5%;
+        font-size: 0.9em;
+    }
+    option {
+        font-size: 0.5em;
+    }
+    .tab {
+        /* height: 23em; */
+    }
+    .dados {
+        width: 80%;
+    }
+    .botoes {
+        margin-top: 0.6em;
+    }
+}

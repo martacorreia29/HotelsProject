@@ -1,0 +1,142 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="hotel-grid-container">
+  <div class="Hotel-name">
+    <h1 id="titulo">{{ hotel.name }}</h1>
+  </div>
+  <div class="Desde-Preco">
+    <h2>desde {{ getCheapestPrice() }}€ por noite </h2>
+  </div>
+
+  <div class="Images">
+    <img id="hotelImages" src="http://{{this.hotel.photo_path[photoIndex]}}" alt="image">
+    <button class="left-arrow" (click)="leftImage()">&#10094;</button>
+    <button class="right-arrow" (click)="righImage()">&#10095;</button>
+  </div>
+
+  <div class="Hotel-navigation">
+    <!--On click desce e sobe na pagina-->
+    <button class="Descrição" id="navBtn" (click)="navigateToSection('#descricao')"> Descrição </button>
+    <button class="Serviços" id="navBtn" (click)="navigateToSection('#servicos')"> Serviços</button>
+    <button class="Quarto" id="navBtn" (click)="navigateToSection('#quartos')"> Quartos </button>
+    <button class="Localização" id="navBtn" (click)="navigateToSection('#localizacao')"> Localização </button>
+    <button class="Contactos" id="navBtn" (click)="navigateToSection('#contactos')"> Contactos </button>
+  </div>
+
+  <div class="Hotel-details">
+    <div class="descricao" id="descricao">
+      <p id="subtitulo"><strong>Descrição</strong></p>
+      <a id="texto">{{ hotel.desc }}</a>
+      <hr>
+    </div>
+    <div class="servicos" id="servicos">
+      <p id="subtitulo"><strong>Serviços</strong></p>
+      <ul>
+        <li *ngFor="let servico of hotel.servicos">
+          <a id="texto">{{servico.name}}</a>
+        </li>
+      </ul>
+      <hr>
+    </div>
+    <div class="localizacao" id="localizacao">
+      <p id="subtitulo"><strong>Localização</strong></p>
+      <ul>
+        <li>
+          <p id="texto">Morada: {{hotel.address}}</p>
+        </li>
+        <li>
+          <p id="texto">Coordenadas GPS: {{hotel.gps}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="contactos" id="contactos">
+      <p id="subtitulo"><strong>Contactos</strong></p>
+      <ul>
+        <li>
+          <p id="texto">E-mail: {{hotel.email}} </p>
+        </li>
+        <li>
+          <p id="texto">Telefone: {{hotel.phone}}</p>
+        </li>
+      </ul>
+      <hr>
+    </div>
+
+
+    <div class="quartos" id="quartos">
+
+      <div class="dados">
+
+        <p id="subtitulo"><strong> Tipos de Quarto</strong></p>
+        <p>Total de Quartos: {{totalNumQuartos}}</p>
+
+        <div class="filtros">
+          <div class="preco">
+            <div class="precoFiltro">
+              Preço
+              <a class="precoMin"> de <input type="number" id="precoMinUt" value=''></a>
+              <a class="precoMax"> até <input type="number" id="precoMaxUt" value=''></a>
+            </div>
+            <div class="botoesPreco">
+              <button class="okPreco" id="procurar" (click)="updateList()">Procurar</button>
+              <button class="cancelarPreco" id="cancelar" (click)="cleanList()">Cancelar</button>
+            </div>
+          </div>
+          <div class="datas">
+            <div class="checkin">
+              Check-in
+              <br>
+              <input type="date" id="date-in" value=''>
+            </div>
+            <div class="checkout">
+              Check-out
+              <br>
+              <input type="date" id="date-out" value=''>
+            </div>
+            <button class="okData" id="procurar" (click)="updateListCheck()">Procurar</button>
+            <button class="cancelarData" id="cancelar" (click)="cleanListCheck()">Cancelar</button>
+          </div>
+        </div>
+      </div>
+      <div class="tiposQuarto" id="tiposQuarto">
+        <ul id="listaTipoQuarto" *ngFor="let tipoQuarto of listTQuartos; let i=index">
+          <div class="tipo" id="tipo">
+            <div class="tipoData" routerLink="/tipoDeQuarto/{{tipoQuarto._id}}">
+              <a class="nome">
+                <a id="subtitulo" style="color: white;"> {{tipoQuarto.name}} </a>
+              </a>
+
+              <a class="numQuartos" style="font-size: 1em;" id="subsubtitulo">
+                Total de Quartos: {{tipoQuarto.quartos.length}}
+              </a>
+
+              <div class="servicosTipo">
+                <a style="font-size: 1em;" id="subsubtitulo"><strong>Serviços</strong></a>
+                <ul *ngFor="let servico of tipoQuarto.servicos">
+                  <li style="font-size: 1em;">{{servico.name}}</li>
+                </ul>
+              </div>
+              <div class="precoTipo">
+                <a style="font-size: 1em;" id="subsubtitulo"><strong>Preço por Época</strong></a>
+                <ul style="font-size: 1em;">
+                  <li>Época Baixa: {{tipoQuarto.lowPrice}}€ por noite</li>
+                  <li>Época Alta: {{tipoQuarto.highPrice}}€ por noite</li>
+                </ul>
+              </div>
+              <div class="precoReserva" id="precoReserva">
+                <span id="{{tipoQuarto._id}}" style="font-size: 1em;"></span>
+              </div>
+            </div>
+            <div class="reservar">
+              <a *ngIf="hasCurrentClient()" (click)="iniciarReserva(tipoQuarto)" style="text-decoration:none;">
+                <button id="reservar">Iniciar Reserva</button>
+              </a>
+              <a *ngIf="!hasCurrentClient()" href="javascript:void(0);"
+                onclick="alert('Por favor, faça login criar uma reserva.')" style="text-decoration:none;">
+                <button id="reservar">Iniciar Reserva</button>
+              </a>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>

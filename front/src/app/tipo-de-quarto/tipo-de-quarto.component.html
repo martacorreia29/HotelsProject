@@ -1,0 +1,35 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class='tipo-de-quarto-grid-container'>
+    <div class='titulo'>
+        <h1>{{ tipoQuarto.name }}</h1>
+    </div>
+    <div class="dados">
+      <div class="preco" id="preco">
+          <p>Número de quartos disponíveis: {{ getNumQuartos() }}</p>
+          <br>
+          <p id="subtitulo"><strong>Preços por Época:</strong></p>
+          <ul id="texto">
+              <li><strong>Época Baixa:</strong>
+                  <ul>
+                      <li>15 Janeiro até 31 de Maio: {{ tipoQuarto.lowPrice }}€ por noite</li>
+                      <li>30 Setembro até 15 Dezembro: {{ tipoQuarto.lowPrice }}€ por noite</li>
+                  </ul>
+              </li>
+              <br>
+              <li><strong>Época Alta:</strong>
+                  <ul>
+                      <li>1 Junho até 29 Setembro: {{ tipoQuarto.highPrice }}€ por noite</li>
+                      <li>16 Dezembro até 14 de Janeiro: {{ tipoQuarto.highPrice }}€ por noite</li>
+                  </ul>
+              </li>
+          </ul>
+          <br>
+      </div>
+      <div class='servicos'>
+          <p><strong>Serviços disponíveis:</strong></p>
+          <ul *ngFor="let servico of tipoQuarto.servicos">
+              <li>{{ servico.name }}</li>
+          </ul>
+      </div>
+    </div>
+</div>

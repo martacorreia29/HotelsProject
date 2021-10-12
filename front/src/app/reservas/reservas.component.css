@@ -1,0 +1,240 @@
+.grid-container {
+  padding-top: 2%;
+  display: grid;
+  width: 90%;
+  height: auto;
+	margin: auto;
+  grid-template-columns: 100%;
+  grid-template-rows: 4em auto auto;
+  gap: 0.5em 0em;
+  grid-template-areas: "titulo" "datas" "reservas";
+}
+
+.titulo { grid-area: titulo; }
+
+.datas {
+  margin: auto;
+  width: 40%;
+  height: 100%;
+  display: grid;
+  border: black solid thin;
+  grid-template-rows: 100%;
+  grid-template-columns: 32.5% 32.5% 17.5% 17.5%;
+  grid-template-areas: "checkin checkout okData cancelarData";
+  text-align: center;
+  grid-area: datas;
+  line-height: 1.3em;
+}
+
+.okData{
+  grid-area: okData;
+  border-right: solid thin white;
+}
+
+.cancelarData{ grid-area: cancelarData}
+
+.checkin {
+  padding-top: 0.1em;
+  grid-area: checkin;
+  border-right: black solid thin;
+}
+
+.checkout {
+  padding-top: 0.1em;
+  padding-bottom: 0.2em;
+  grid-area: checkout;
+  border-right: black solid thin;
+}
+
+.checkin input, .checkout input{
+  width: 70%;
+}
+
+#procurar,
+#cancelar {
+	border: none;
+	background-color: #333;
+	color: #ddd;
+	font-size: 15px;
+}
+
+#cancelar:focus,
+#procurar:focus,
+#botaoReserva:focus {
+	outline: none;
+}
+
+.reservas {
+  grid-area: reservas;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding-right: 0em;
+  padding-left: 0em;
+  gap: 1em;
+  height: auto;
+}
+
+.reserva {
+  border: 2px solid #343434;
+  height: 11.5em;
+  margin-top: 1em;
+}
+
+.reserva:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.reserva img {
+  float: left;
+  margin: 0 1em 0 0;
+  width: 17em;
+  height: 11.5em;
+}
+
+p {
+  display: block;
+  font-size: 1em;
+  font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+  color:rgb(34,34,34);
+}
+
+/* unvisited link and visited link  */
+.link:link, .link:visited {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+/* mouse over link and selected link */
+.link:hover, .link:active{
+  color: rgb(81, 125, 207);
+  text-decoration: underline;
+}
+
+/*#################################################################################################*/
+/*Tamanho do texto*/
+#titulo,
+#subtitulo {
+  font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-weight: bold;
+}
+
+#titulo {
+	font-size: 2em;
+	color:rgb(34,34,34);
+}
+
+#subtitulo {
+	font-size: 1.3em;
+}
+
+@media (hover: hover) {
+  #procurar:hover,
+  #cancelar:hover {
+    background: #ddd;
+    color: #333;
+  }
+}
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background:rgb(51,51,51);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+
+  .grid-container{
+    gap: 1em 0em;
+    padding-top: 9%;
+  }
+
+	.reserva img{
+    display: block;
+    width : 95.5%;
+    height: 100%;
+    padding: 1em;
+  }
+
+  .reserva {
+    width: 95%;
+    margin: auto;
+    margin-top: 1em;
+    height: auto;
+  }
+
+  #titulo {
+    font-size: 2.3em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .dados{
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .datas {
+    width: 95%;
+    height: 100%;
+    grid-area: datas;
+    font-size: 1.6em;
+    line-height: 1em;
+  }
+
+  .checkin, .checkout {
+    padding-top: 0em;
+  }
+
+  .checkin, .checkout, .okData, .cancelarData {
+    padding-bottom: 0.2em;
+  }
+
+  .datas input{
+    height: 2em;
+    font-size: 0.7em;
+  }
+
+  #procurar, #cancelar{
+    font-size: 0.8em;
+  }
+  
+}

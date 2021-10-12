@@ -1,0 +1,98 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.hoteis{
+  padding-top: 2em;
+  font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+.hotelData {
+	width: 100%;
+  position: relative;
+	text-align: center;
+	height: 40vh;
+  display: block;
+}
+
+.hotel_name {
+	position: relative;
+	bottom: 60%;
+	color: white;
+	font-size: 300%;
+  white-space: nowrap;
+}
+
+.hotel_name span {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: rgb(128,128,128,0.7);
+}
+
+.hotelData img {
+	display: block;
+	width : 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 0 80%;
+}
+
+.item {
+  vertical-align: top;
+  display: inline-block;
+  border: 2px gray solid;
+	max-width: 30vw;
+	min-width: 300px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.item:hover {
+  background-color: rgb(240,240,240);
+}
+
+.list {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  margin-top: 2%;
+  display: flex;
+}
+
+.contacts {
+  padding-top: 1%;
+  text-align: left;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-bottom: 5px;
+  font-size: 1em;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  .hoteis{
+    padding-top: 10%;
+  }
+
+  .nome {
+    padding-top: 2.5%;
+  }
+
+	.item{
+    width: 90%;
+    max-width: none;
+    height: auto;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+
+  .list{
+    display: block;
+    width: 100%;
+    margin-left: 0.3em;
+  }
+}

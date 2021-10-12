@@ -1,0 +1,60 @@
+.tipo-de-quarto-grid-container {
+  padding-top: 2%;
+	text-align: justify;
+  display: grid;
+	width: 90%;
+	height: auto;
+	margin: auto;
+	grid-template-columns: 1fr;
+	grid-template-rows: 70px auto;
+	gap: 0px 1px;
+  grid-template-areas: "titulo" "dados" "dados";
+}
+
+.titulo{
+  grid-area: titulo;
+  font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+.dados {
+  grid-area: dados;
+  display: grid;
+  grid-template-columns: 50% 50%;
+	grid-template-rows: 1fr;
+	gap: 0em 1em;
+  grid-template-areas: "preco servicos";
+}
+.preco{
+  grid-area: preco;
+}
+
+.servicos{
+	grid-area: servicos;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  .tipo-de-quarto-grid-container{
+    padding-top: 9%;
+  }
+
+	.dados {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "preco" "servicos";
+  }
+
+  .servicos{
+    padding-bottom: 2em;
+  }
+}
+
+#tipo_de_quarto {
+	padding-left: 3%;
+	font-family: arial;
+}
+
+#epocas {
+	padding-left: 1%;
+}

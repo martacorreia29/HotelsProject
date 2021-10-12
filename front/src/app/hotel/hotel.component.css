@@ -1,0 +1,509 @@
+.hotel-grid-container {
+  padding-top: 2%;
+	text-align: justify;
+	display: grid;
+	width: 90%;
+	height: auto;
+	margin: auto;
+	grid-template-rows: 45px 60px 500px 55px 1500px;
+	gap: 0.5px 0px;
+	grid-template-areas: ". Hotel-name ." ". Desde-Preco ." ". Images ." ". Hotel-navigation ." ". Hotel-details .";
+}
+
+
+/*#################################################################################################*/
+/*Tamanho do texto*/
+#titulo,
+#subtitulo,
+#subsubtitulo {
+	font-family: 'Helvetica neue', Helvetica, "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+#texto {
+	font-size: 20px;
+}
+
+#subtitulo {
+	font-size: 1.3em;
+	color:rgb(34,34,34);
+}
+
+#titulo {
+	font-size: 35px;
+	color:rgb(34,34,34);
+}
+
+/*separador*/
+hr {
+	border-top: 1px solid rgb(0, 0, 0);
+	margin: 1em 0;
+	width: 50%;
+	margin-left: 25%;
+}
+
+#procurar,
+#cancelar {
+	/*margin-left: 1%;*/
+	border: none;
+	background-color: #333;
+	color: #ddd;
+	font-size: 15px;
+	/*height: 1em;*/
+}
+
+#procurar{
+  border-right: thin solid #ffffff;
+}
+
+@media (hover: hover) {
+  #procurar:hover,
+  #cancelar:hover,
+  #botaoReserva:hover {
+    background: #ddd;
+    color: #333;
+  }
+}
+
+#cancelar:focus,
+#procurar:focus,
+#botaoReserva:focus {
+	outline: none;
+
+}
+
+/*Nome do Hotel*/
+.Hotel-name {
+	grid-area: Hotel-name;
+	color:rgb(34,34,34);
+}
+
+.Desde-Preco{
+	grid-area: Desde-Preco;
+	color:rgb(34,34,34);
+
+}
+
+.Images {
+	text-align: center;
+	display: inline-block;
+	grid-area: Images;
+	background-color: rgb(34, 34, 34);
+	position: relative;
+}
+
+.left-arrow,
+.right-arrow {
+  position: absolute;
+	width: 10%;
+	height: 100%;
+	background: #2a2a2a00;
+	border: none;
+	color: #fff;
+	font-weight: bold;
+	font-size: 40px;
+	opacity: 0.6;
+	text-align: center;
+	outline: none;
+}
+
+@media (hover: hover) {
+  .left-arrow:hover {
+	  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 49%, rgba(255, 255, 255, 0) 100%);
+  }
+  .right-arrow:hover {
+	  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 49%, rgba(0, 0, 0, 1) 100%);
+  }
+
+  .left-arrow:hover,
+  .right-arrow:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+.left-arrow {
+	left: 0;
+}
+
+.right-arrow {
+	right: 0;
+}
+
+#hotelImages {
+	height: 100%;
+	max-width: 100%;
+}
+
+/*Barra de navegação*/
+.Hotel-navigation {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	gap: 1px 1px;
+	grid-template-areas: "Descrição Serviços Quartos Localização Contactos";
+	grid-area: Hotel-navigation;
+}
+
+.Descrição {
+	grid-area: Descrição;
+}
+
+.Serviços {
+	grid-area: Serviços;
+}
+
+.Quartos {
+	grid-area: Quartos;
+}
+
+.Localização {
+	grid-area: Localização;
+}
+
+.Contactos {
+	grid-area: Contactos;
+}
+
+#navBtn {
+  border: none;
+  border-top: #ddd solid 0.2vh ;
+  border-right: #ddd solid 0.1px;
+	background-color: #333;
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+}
+
+#navBtn:last-child{
+  border-right: none;
+}
+
+@media (hover: hover) {
+  #navBtn:hover {
+    border: none;
+    background: #ddd;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+/*Detalhes do Hotel*/
+.Hotel-details {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 0.5fr 0.5fr 1fr;
+	gap: 1px 1px;
+	grid-template-areas: "descricao" "servicos" "localizacao" "contactos" "quartos";
+	grid-area: Hotel-details;
+}
+
+.descricao,
+.servicos,
+.localizacao,
+.contactos,
+.preco,
+.quartos {
+	width: 100%;
+}
+
+.descricao {
+	grid-area: descricao;
+}
+
+.servicos {
+	grid-area: servicos;
+}
+
+.localizacao {
+	grid-area: localizacao;
+}
+
+.contactos {
+	grid-area: contactos;
+}
+
+.quartos {
+  margin: auto;
+	grid-area: quartos;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 5fr;
+	gap: 1px;
+	grid-template-areas: "dados" "tiposQuarto";
+}
+
+.dados {
+	grid-area: dados;
+  font-size: 18px;
+  height: auto;
+  padding-bottom: 1em;
+}
+
+.tiposQuarto {
+  height: 1000px;
+	grid-area: tiposQuarto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.break {
+	flex-basis: 100%;
+	width: 0;
+}
+
+/*Tipos de Quarto*/
+.tipo {
+	display: grid;
+	width: 400px;
+	height: auto;
+	border: solid black;
+	grid-template-rows: auto 3em;
+  grid-template-areas: "tipoData" "reservar";
+  line-height: 1.6em;
+}
+
+.tipoData {
+  grid-area: tipoData;
+  display: grid;
+  width: 100%;
+  grid-template-rows: 2.1em 1.5em auto auto auto;
+  grid-template-areas: "nome" "numQuartos" "servicosTipo" "precoTipo" "precoReserva";
+  line-height: 1.6em;
+}
+
+.nome {
+  grid-area: nome;
+  padding-top: 1%;
+	text-align: center;
+	background-color: #333;
+	color: rgb(255, 255, 255);
+	border-bottom: black solid;
+}
+
+.numQuartos {
+  grid-area: numQuartos;
+}
+
+.servicosTipo {
+  grid-area: servicosTipo;
+  border-top: rgb(0, 0, 0) solid thin;
+  border-bottom: rgb(0, 0, 0) solid thin;
+  padding-bottom: 1%;
+  padding-top: 1%;
+}
+
+.precoTipo{
+  padding-top: 1%;
+  padding-bottom: 2%;
+  grid-area: precoTipo;
+  border-bottom: rgb(0, 0, 0) solid thin;
+}
+
+.precoReserva{
+  display: block;
+  grid-area: precoReserva;
+}
+
+.reservar {
+  grid-area: reservar;
+  text-align: center;
+  background-color: #333;
+}
+
+#reservar{
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color: #333;
+  font-size: 1.2em;
+}
+
+.numQuartos,
+.servicosTipo,
+.precoTipo,
+.precoReserva {
+	padding-left: 10px;
+}
+
+@media (hover: hover) {
+  #tipo:hover {
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.filtros{
+  margin: auto;
+  width: 50%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 40% 50%;
+  text-align: center;
+  grid-template-rows: 4.5em;
+  gap: 0em 0.3em;
+  grid-template-areas: "preco datas";
+}
+
+.preco {
+  border: solid thin rgb(34, 34, 34);
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 75% 25%;
+  grid-template-areas: "precoFiltro" "botoesPreco";
+  grid-area: preco;
+}
+
+.preco input{
+  width: 5em;
+}
+
+.precoFiltro{
+  grid-area: precoFiltro;
+  padding-top: 1em ;
+  height: 100%;
+  line-height: 1em;
+}
+
+.botoesPreco{
+  height: 100%;
+  grid-area: botoesPreco;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+  grid-template-areas: "okPreco cancelarPreco";
+}
+
+.okPreco { grid-area: okPreco; }
+
+.cancelarPreco { grid-area: cancelarPreco; }
+
+.datas {
+  height: 100%;
+  display: grid;
+  border: solid thin rgb(34, 34, 34);
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 75% 25%;
+  grid-template-areas: "checkin checkout" "okData cancelarData";
+  text-align: center;
+  grid-area: datas;
+  line-height: 1.3em;
+}
+
+.checkin {
+  padding-top: 0.2em;
+  grid-area: checkin;
+  border-right: black solid thin;
+}
+
+.checkout {
+  padding-top: 0.2em;
+  grid-area: checkout;
+}
+
+.checkin input, .checkout input{
+  width: 10em;
+}
+
+.okData{ grid-area: okData }
+
+.cancelarData{ grid-area: cancelarData }
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+
+  .hotel-grid-container{
+    padding-top: 8%;
+  }
+
+  #listaTipoQuarto{
+    padding: 0;
+  }
+
+  .tipo{
+    width: 18em;
+    font-size: 1.7em;
+    line-height: 1.1em;
+  }
+
+  #subtitulo{
+    font-size: 1.6em;
+  }
+
+  .tipo #subtitulo{
+    font-size: 1.2em;
+
+  }
+
+  .tipo #subsubtitulo{
+    font-size: 2.4em;
+  }
+
+  .filtros{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 4em 4.5em;
+    grid-template-columns: 100%;
+    gap: 0.5em 0em;
+    grid-template-areas: "preco" "datas";
+  }
+
+  .preco {
+    grid-area: preco;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 100%;
+    grid-template-areas: "precoFiltro botoesPreco";
+    font-size: 1.6em;
+    height: 100%;
+  }
+
+  .preco input{
+    height: 2em;
+    width: 25%;
+  }
+
+  .precoFiltro{
+    grid-area: precoFiltro;
+    padding-top: 4%;
+    font-size: 1.1em;
+  }
+
+  .botoesPreco{
+    grid-area: botoesPreco;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: "okPreco cancelarPreco";
+  }
+
+  .datas {
+    width: 100%;
+    grid-area: datas;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 32.5% 32.5% 17.5% 17.5%;
+    grid-template-areas: "checkin checkout okData cancelarData";
+    font-size: 1.6em;
+  }
+
+  .checkin, .checkout {
+    padding-top: 0em;
+  }
+
+  .datas input{
+    height: 2em;
+    font-size: 0.6em;
+  }
+
+  #procurar, #cancelar{
+    font-size: 0.8em;
+  }
+
+
+}

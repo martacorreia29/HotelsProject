@@ -1,0 +1,28 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="reserva" *ngIf="reserva != null">
+    <div class="tab">
+        <p>Dados da sua reserva:</p>
+        <div class="dados" style="text-align: left; position: relative;">
+            <p style="font-size: 0.7em;"><a>Data de Check-In:</a> {{getCheckIn()}}</p>
+            <p style="font-size: 0.7em;"><a>Data de Check-Out:</a> {{getCheckOut()}}</p>
+            <p style="font-size: 0.7em;"><a>Hotel:</a> {{getHotel()}}</p>
+            <p style="font-size: 0.7em;"><a>Tipo de Quarto:</a> {{getTQuarto()}}</p>
+            <p style="font-size: 0.7em;"><a>Nome:</a> {{reserva.name}}</p>
+            <p style="font-size: 0.7em;"><a>Email:</a> {{reserva.email}}</p>
+            <p style="font-size: 0.7em;"><a>Telefone:</a> {{reserva.phone}}</p>
+            <p style="font-size: 0.7em;"><a>Morada:</a> {{reserva.address}}</p>
+            <p style="font-size: 0.7em;"><a>NIF:</a> {{reserva.nif}}</p>
+            <p style="font-size: 0.7em;"><a>Número do Cartão:</a>
+                {{card.number}}</p>
+            <p style="font-size: 0.7em;"><a>Data de Validade do Cartão:</a>
+                {{getExpDate()}}</p>
+            <p style="font-size: 0.7em;"><a>CVV:</a> {{card.cvv}}</p>
+            <p style="font-size: 0.7em;"><a>Preço:</a> {{reserva.preco}} €</p>
+        </div>
+    </div>
+    <div class="botoes">
+        <button type="button" disabled title="Não é possível editar uma reserva passada."
+            routerLink="/reserva/{{reserva._id}}/editar" *ngIf="!canEdit()">Editar</button>
+        <button type="button" active routerLink="/reserva/{{reserva._id}}/editar" *ngIf="canEdit()">Editar</button>
+    </div>
+</div>

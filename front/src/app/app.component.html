@@ -1,0 +1,23 @@
+<nav>
+  <div class="navbar" *ngIf="pathLogo">
+
+    <a class="logo" href="/hoteis">
+      <img src="{{pathLogo}}">
+    </a>
+
+    <a href="/hoteis">Hóteis</a>
+
+    <a *ngIf="hasCurrentClient(); else loggedOutReservas" href="/reservas/{{currentClient._id}}">Reservas</a>
+    <ng-template #loggedOutReservas><a href="javascript:void(0);"
+        onclick="alert('Por favor, faça login para aceder às suas reservas.')">Reservas</a></ng-template>
+
+    <a *ngIf="hasCurrentClient(); else loggedIn" href="/hoteis" (click)="logout()" id="login">Logout</a>
+    <ng-template #loggedIn>
+      <a href="/login" id="login">Login</a>
+      <a href="/register" id="login">Registar</a>
+    </ng-template>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

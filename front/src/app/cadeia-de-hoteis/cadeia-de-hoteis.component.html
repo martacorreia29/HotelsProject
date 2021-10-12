@@ -1,0 +1,18 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=0.5, user-scalable=no" />
+<div class="hoteis">
+  <ul class="list">
+    <li *ngFor="let hotel of hoteis; let i = index" class="item" routerLink="/hotel/{{hotel._id}}">
+      <div *ngIf="imgIndex" class="hotelData">
+        <img src="http://{{hotel.photo_path[imgIndex[0]]}}">
+        <div class="hotel_name"><span>{{hotel.name}}</span></div>
+      </div>
+      <!---Acho boa ideia meter aqui os contactos-->
+      <div class="contacts">
+        <p><strong>Morada:</strong> {{hotel.address}}</p>
+        <p><strong>GPS:</strong> {{hotel.gps}}</p>
+        <p><strong>Telefone:</strong> {{hotel.phone}}</p>
+        <p><strong>Email:</strong> {{hotel.email}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
